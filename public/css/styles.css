@@ -65,11 +65,12 @@ nav ul {
   background-color: black;
   color: white;
   font-size: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 nav li {
   text-align: center;
-  padding-right: 25px;
 }
 
 h1, h2, h3 {
@@ -124,7 +125,7 @@ ul, a {
 #floating-window {
   position: absolute;
   top: 30%;
-  left: 17%;
+  left: 15%;
   transform: translate(-50%, -50%);
   z-index: 2; /* Set a higher z-index to make it appear above other elements */
   background-color: rgba(255, 255, 255, 0.829);
@@ -135,6 +136,8 @@ ul, a {
 #delorean-img {
   position: relative;
   z-index: 1; /* Set a lower z-index to place it behind other elements */
+  max-width: 100% !important;
+  
 }
 
 .grid-container {
@@ -177,5 +180,109 @@ ul, a {
   padding: 10px;
   
 }
+
+/* Adjust the image size for medium screens */
+@media screen and (max-width: 900px) {
+    h1 {
+      font-size: 25px;
+    }
+
+    #delorean-img {
+      max-width: 80% !important; 
+    }
+
+    #floating-window {
+      padding: 2px;
+    }
+
+    #floating-window h2 {
+      font-size: 18px;
+    }
+    
+    #floating-window h3 {
+      font-size: 16px;
+      margin: 1px;
+    }
+    
+    #floating-window button {
+      margin: 8px;
+      padding: 8px 12px;
+    }
+
+    nav ul {
+      font-size: 16px;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    #floating-window {
+      position: absolute;
+      top: 25%;
+      left: 17%;
+    }
+    
+    .grid-container {
+      display: block;
+    }
+    
+  }
+
+/* Adjust the image size for smaller screens */
+@media screen and (max-width: 560px) {
+  h1 {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+
+  #delorean-img {
+    max-width: 90% !important; 
+  }
+
+  nav ul {
+    font-size: 16px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  
+  #floating-window {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+  }
+}
+
+/* Adjust the image size for even smaller screens */
+@media screen and (max-width: 380px) {
+  h1 {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+
+  #delorean-img {
+    max-width: 80% !important; 
+  }
+
+  nav ul {
+    font-size: 14px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  
+  #floating-window {
+    position: absolute;
+    top: 15%;
+    left: 25%;
+  }
+}
+
+@media screen and (max-width: 320px){
+  #floating-window {
+    position: absolute;
+    top: 16%;
+    left: 30%;
+  }
+}
+
+
 
 
