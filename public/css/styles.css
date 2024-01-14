@@ -5,6 +5,24 @@
   box-sizing: border-box;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Playfair+Display:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Playfair+Display:wght@500&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Playfair+Display:wght@500&family=Roboto&display=swap');
+
+
+
+:root {
+  --serif-font: 'Playfair Display', serif;
+  --sans-serif-font: 'Roboto', sans-serif;
+  --all-caps-font: 'Montserrat', sans-serif;
+}
+
+header{
+  font-family: var(--all-caps-font);
+  font-size: 18px;
+}
+
+
 body {
   background-image: url('/images/site/checkerboard.jpg');
   background-size: 60%;
@@ -42,15 +60,36 @@ nav ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   background-color: black;
   color: white;
+  font-size: 20px;
 }
 
 nav li {
-  padding-left: 30px;
-  padding-right: 30px;
   text-align: center;
+  padding-right: 25px;
+}
+
+h1, h2, h3 {
+  font-family: var(--serif-font);
+}
+
+h1 {
+  font-size: 30px;
+}
+
+h2 {
+  font-size: 25px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+ul, a {
+  font-family: var(--sans-serif-font);
 }
 
 #floating-window {
