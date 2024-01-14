@@ -4,3 +4,139 @@
 *:after {
   box-sizing: border-box;
 }
+
+body {
+  background-image: url('/images/site/checkerboard.jpg');
+  background-size: 60%;
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+#wrapper {
+  background-color: white;
+  margin: 7%;
+  border: 7px solid turquoise;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#top-header {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 10px;
+}
+
+#top-header a {
+  text-decoration: none;
+  color: black;
+}
+
+.siteName {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: black;
+  color: white;
+}
+
+nav li {
+  padding-left: 30px;
+  padding-right: 30px;
+  text-align: center;
+}
+
+#floating-window {
+  background-color: rgba(0, 0, 255, 0.326);
+
+}
+
+#floating-window h2 {
+  margin: 1px;
+}
+
+#floating-window h3 {
+  margin: 3px;
+}
+
+#floating-window button {
+  margin: 10px;
+  padding: 10px 15px;
+  align-self: center;
+  display: block; /* Ensures the button takes up full width of its container */
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(53, 178, 165);
+  font-weight: bold;
+  border: none;
+}
+
+#body-container {
+  position: relative;
+}
+
+#floating-window {
+  position: absolute;
+  top: 30%;
+  left: 17%;
+  transform: translate(-50%, -50%);
+  z-index: 2; /* Set a higher z-index to make it appear above other elements */
+  background-color: rgba(255, 255, 255, 0.829);
+  color: rgb(58, 201, 187);
+  padding: 10px;
+}
+
+#delorean-img {
+  position: relative;
+  z-index: 1; /* Set a lower z-index to place it behind other elements */
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+#blue-boxes-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+}
+
+.blue-box {
+  background-color: turquoise;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 6px;
+  padding: 6px;
+}
+
+.link-name {
+  background-color: white;
+  text-align: center;
+}
+
+.blue-box img {
+  align-self: center;
+  
+}
+
+#reviews-div ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80%; /* Set the height of the container */
+  padding: 10px;
+  
+}
+
+
