@@ -3,10 +3,10 @@
 -- DROP TYPE IF EXISTS public.account_type;
 
 CREATE TYPE public.account_type AS ENUM
-    ('Client', 'Employee', 'Admin ');
+    ('Client', 'Employee', 'Admin');
 
 ALTER TYPE public.account_type
-    OWNER TO cse340;
+    OWNER TO cse340aof;
 
 
 -- 2. Table structure for table ‘classification’
@@ -240,3 +240,6 @@ VALUES   (
     'White',
     5
   );
+
+UPDATE inventory
+SET inv_image = REPLACE (inv_image, '/images', '/images/vehicles');
