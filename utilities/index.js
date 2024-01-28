@@ -1,5 +1,6 @@
 const invModel = require("../models/inventory-model")
 const Util = {}
+const utilities = require("./utilities/")
 
 /* ************************
  * Constructs the nav HTML unordered list
@@ -57,5 +58,14 @@ Util.buildClassificationGrid = async function(data){
   }
   return grid
 }
+
+/* ****************************************
+ * Middleware For Handling Errors
+ * Wrap other function in this for 
+ * General Error Handling
+ **************************************** */
+Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
+// Index route
+app.get("/", utilities.handleErrors(baseController.buildHome))
 
 module.exports = Util
