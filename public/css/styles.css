@@ -22,8 +22,7 @@ header{
 
 
 body {
-  background-image: url('/images/site/checkerboard.jpg');
-  background-size: 60%;
+  background-image: url('/images/site/small_check.jpg');
   background-repeat: repeat;
   background-attachment: fixed;
 }

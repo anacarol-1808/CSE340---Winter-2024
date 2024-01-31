@@ -39,7 +39,8 @@ WHERE cl.classification_name = 'Sport';
 -- This reference may prove helpful - https://www.postgresqltutorial.com/postgresql-string-functions/postgresql-replace/. 
 -- When done the path for both inv_image and inv_thumbnail should resemble this example: /images/vehicles/a-car-name.jpg
 UPDATE inventory
-SET inv_image = REPLACE (inv_image, '/images', '/images/vehicles');
+SET inv_image = REPLACE (inv_image, '/images', '/images/vehicles'),
+inv_thumbnail = REPLACE (inv_thumbnail, '/images', '/images/vehicles');
 
 -- 7. When done with the 6th query, copy and paste it into the assignment 2 file. 
 -- In addition to this, add the 6th query to the bottom of the file you created to 
