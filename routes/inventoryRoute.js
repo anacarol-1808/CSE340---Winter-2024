@@ -8,6 +8,6 @@ const itemDetailController = require("../controllers/itemDetailController")
 router.get("/type/:classificationId", invController.buildByClassificationId);
 
 // Route to deliver a specific inventory item detail view
-router.get("/detail/:vehicleId", itemDetailController.showItemDetail);
+router.get("/detail/:inv_id", invController.showItemDetail);
 
 module.exports = router;

@@ -1,0 +1,27 @@
+const pool = require("../database/");
+
+/* ***************************
+ *  Get all items
+ * ************************** */
+async function getAllItems() {
+  try {
+    const data = await pool.query("SELECT * FROM public.item ORDER BY item_name");
+    return data.rows;
+  } catch (error) {
+    console.error("getAllItems error: " + error);
+  }
+}
+
+/* ***************************
+ *  Get an item by inv_id
+ * ************************** */
+async function getItemById(inv_id) {
+  try {
+    const data = await pool.query("SELECT * FROM public.item WHERE inv_id = $1", [inv_id]);
+    return data.rows[0]; // Assuming inv_id is unique, returning the first element
+  } catch (error) {
+    console.error("getItemById error: " + error);
+  }
+}
+
+module.exports = { getAllItems, getItemById };
