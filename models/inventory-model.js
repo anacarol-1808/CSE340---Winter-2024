@@ -25,17 +25,20 @@ async function getInventoryByClassificationId(classification_id) {
   }
 }
 
-// /* ***************************
-//  *  Get all vehicle items, including inv_make, inv_model, and inv_year by inv_id
-//  * ************************** */
-// async function getItemById(inv_id) {
-//   try {
-//     const data = await pool.query("SELECT * FROM public.inventory WHERE inv_id = $1", [inv_id]);
-//     return data.rows[0]; // Assuming inv_id is unique, returning the first element
-//   } catch (error) {
-//     console.error("getItemById error: " + error);
-//   }
-// }
+/* ***************************
+ *  Get all vehicle items, including inv_make, inv_model, and inv_year by inv_id
+ * ************************** */
+async function getItemById(inv_id) {
+  try {
+    const data = await pool.query(
+      `SELECT * FROM public.inventory 
+      WHERE inv_id = $1`, 
+      [inv_id]
+      )
+    return data.rows
+  } catch (error) {
+    console.error("getItemById error: " + error);
+  }
+}
 
-// module.exports = {getClassifications, getInventoryByClassificationId, getItemById}
-module.exports = {getClassifications, getInventoryByClassificationId}
+module.exports = {getClassifications, getInventoryByClassificationId, getItemById}
