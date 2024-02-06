@@ -65,11 +65,28 @@ Util.buildClassificationGrid = async function(data){
 Util.buildItemDetailView = async function(vehicleData){
   let grid
   if(vehicleData.length > 0){
-    grid = '<div id="vehicle-detail-display">'
+    grid = '<div id="vehicle-details-display">'
     vehicleData.forEach(vehicle => { 
-      grid += '<span>' + vehicle.inv_year + '</span>'
-      grid += '<span>' + vehicle.inv_make + '</span>'
-      grid += '<span>' + vehicle.inv_model + '</span>'
+      leftDiv = '<div id="vehicle-image">'
+      leftDiv += '<img src="' + vehicle.inv_image 
+      +'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model 
+      +' on CSE Motors" />' + '</div>'
+      grid += leftDiv
+      rightDiv = '<div id="vehicle-details">'
+      rightDiv += '<span class="bold">' + vehicle.inv_make + ' '
+      rightDiv += vehicle.inv_model + ' Details' + '</span>'
+      let price = parseInt(vehicle.inv_price, 10)
+      rightDiv += '<p>' + '<span class="bold">Price: </span>' 
+      rightDiv += price.toLocaleString("en-US", {style:"currency", currency:"USD", minimumFractionDigits: 0}) 
+      rightDiv += '</p>'
+      rightDiv += '<p>' + '<span class="bold">Description: </span>' + vehicle.inv_description
+      rightDiv += '</p>'
+      rightDiv += '<p>' + '<span class="bold">Color: </span>' + vehicle.inv_color
+      rightDiv += '</p>'
+      rightDiv += '<p>' +  '<span class="bold">Miles: </span>' + parseInt(vehicle.inv_miles, 10).toLocaleString('en-US')
+      rightDiv += '</p>'
+      rightDiv += '</div>'
+      grid += rightDiv
     })
     grid += '</div>'
   } else { 
