@@ -34,7 +34,7 @@ Util.buildClassificationGrid = async function(data){
     grid = '<ul id="inv-display">'
     data.forEach(vehicle => { 
       grid += '<li>'
-      grid +=  '<a href="../../inv/detail/'+ vehicle.inv_id 
+      grid +=  '<a href="../../inv/detail/'+ vehicle.inv_id
       + '" title="View ' + vehicle.inv_make + ' '+ vehicle.inv_model 
       + 'details"><img src="' + vehicle.inv_thumbnail 
       +'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model 
@@ -67,12 +67,12 @@ Util.buildItemDetailView = async function(vehicleData){
   if(vehicleData.length > 0){
     grid = '<div id="vehicle-details-display">'
     vehicleData.forEach(vehicle => { 
-      leftDiv = '<div id="vehicle-image">'
+      let leftDiv = '<div id="vehicle-image">'
       leftDiv += '<img src="' + vehicle.inv_image 
       +'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model 
       +' on CSE Motors" />' + '</div>'
       grid += leftDiv
-      rightDiv = '<div id="vehicle-details">'
+      let rightDiv = '<div id="vehicle-details">'
       rightDiv += '<span class="bold">' + vehicle.inv_make + ' '
       rightDiv += vehicle.inv_model + ' Details' + '</span>'
       let price = parseInt(vehicle.inv_price, 10)

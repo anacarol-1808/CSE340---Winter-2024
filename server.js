@@ -28,7 +28,7 @@ app.use(static)
 // Index route
 app.get("/", utilities.handleErrors(baseController.buildHome))
 // Inventory routes
-app.use("/inv", inventoryRoute)
+app.use("/inv", utilities.handleErrors(inventoryRoute))
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
@@ -46,6 +46,42 @@ app.use(async (err, req, res, next) => {
     title: err.status || 'Server Error',
     message,
     nav
+  })
+})
+
+// Error handling for buildClassificationGrid
+app.use(async (err, req, res, next) => {
+  let classificationGrid = await utilities.buildClassificationGrid()
+  console.error(`Error at: "${req.originalUrl}": ${err.message}`)
+  if(err.status == 404){ message = err.message} else {message = 'Oh no! There was a crash. Maybe try a different route?'}
+  res.render("errors/error", {
+    title: err.status || 'Server Error',
+    message,
+    classificationGrid
+  })
+})
+
+
+// Error handling for buildItemDetailView
+app.use(async (err, req, res, next) => {
+  let detailView = await utilities.buildItemDetailView()
+  console.error(`Error at: "${req.originalUrl}": ${err.message}`)
+  if(err.status == 404){ message = err.message} else {message = 'Oh no! There was a crash. Maybe try a different route?'}
+  res.render("errors/error", {
+    title: err.status || 'Server Error',
+    message,
+    detailView
+  })
+})
+
+// Intentional error handling middleware
+app.use(async(err, req, res, next) => {
+  let nav = await utilities.getNav();
+  console.error(`Intentional Error at: "${req.originalUrl}": ${err.message}`);
+  res.status(500).render('errors/error', {
+    title: 'Server Error',
+    message: 'Intentional error occurred. Check the console for details.',
+    nav,
   })
 })
 
