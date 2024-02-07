@@ -1,0 +1,13 @@
+<!-- Assigment 3, Basic Error Handling activity -->
+
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <h2><%= status %></h2>
+    <% } else {
+      res.redirect('/')
+    } %>
+
+<!-- message -->
+<%= message  %>
+
+<%# messages() %>
