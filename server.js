@@ -30,7 +30,7 @@ app.get("/", utilities.handleErrors(baseController.buildHome));
 // Inventory routes
 app.use("/inv", utilities.handleErrors(inventoryRoute));
 // Intentional 500 Error Route
-app.use('/intentional-error', (req, res, next) => {
+app.use('/error', (req, res, next) => {
   next({ status: 500, message: 'You triggered an intentional server error.' });
 });
 // Intentional error handling middleware
