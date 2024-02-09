@@ -1,0 +1,23 @@
+ <!-- content heading -->
+ <% if (title) { %>
+    <h1><%= title %></h1>
+<% } else {
+    // Redirect to the home page if there is no title
+    res.redirect('/');
+} %>
+
+<!-- message -->
+<%- messages() %>
+
+<!-- Login Form -->
+<form action="/login">
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">Login</button>
+</form>
+
+<p>Don't have an account? <a href="/register">Register here</a></p>

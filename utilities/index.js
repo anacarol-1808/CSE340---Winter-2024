@@ -95,6 +95,24 @@ Util.buildItemDetailView = async function(vehicleData){
   return grid
 }
 
+/* **************************************
+ * Build the login view HTML
+ * ************************************ */
+Util.buildLogin = async function() {
+  let loginView = '<div id="login-form">';
+  loginView += '<form action="/login" method="POST">';
+  loginView += '<label for="email">Email:</label>';
+  loginView += '<input type="text" id="email" name="email" required>';
+  loginView += '<label for="password">Password:</label>';
+  loginView += '<input type="password" id="password" name="password" required>';
+  loginView += '<button type="submit">Login</button>';
+  loginView += '</form>';
+  loginView += '<p>Don\'t have an account? <a href="/register">Register here</a></p>';
+  loginView += '</div>';
+  return loginView;
+};
+
+
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 

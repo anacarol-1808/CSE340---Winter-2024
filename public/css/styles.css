@@ -239,6 +239,10 @@ ul, a {
   display: flex;
 }
 
+.notice {
+  color: red;
+}
+
 
 /* Adjust the image size for medium screens */
 @media screen and (max-width: 900px) {
