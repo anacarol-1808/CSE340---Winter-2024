@@ -10,7 +10,7 @@
 <%- messages() %>
 
 <!-- Register Form -->
-<form action="/register">
+<form action="/account/register" method="post">
     <label for="fname">First name:</label>
     <input type="text" id="fname" name="account_firstname" required>
     
@@ -18,11 +18,19 @@
     <input type="text" id="lname" name="account_lastname" required>
 
     <label for="email">Email address:</label>
-    <input type="email" id="email" name="account_email" required>
+    <input type="email" id="email" name="account_email" required placeholder="Enter a valid email address">
 
     <label for="password">Password:</label>
-    <input type="password" id="password" name="account_password" pattern="(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{12,}" 
-    title="Password must be 12 characters long, contain at least 1 capital letter, 1 number, and 1 special character" required>
+    <input type="password" id="password" name="account_password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" required>
+    <div>Password requirements:
+        <ul>
+            <li>at least 12 characters</li>
+            <li>at least 1 number</li>
+            <li>at least 1 lowercase letter</li>
+            <li>at least 1 capital letter</li>
+            <li>at least 1 non-alphanumeric character</li>
+        </ul> 
+    </div>
 
     <button type="submit">Register</button>
 </form>
