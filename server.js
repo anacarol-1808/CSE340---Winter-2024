@@ -62,13 +62,6 @@ app.use('/error', (req, res, next) => {
   next({ status: 500, message: 'You triggered an intentional server error.' });
 });
 
-// Account error handler middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send('Something went wrong!');
-  console.log('Error in Account Route');
-})
-
 // Intentional error handling middleware - place as second least
 app.use(async (err, req, res, next) => {
   let nav = await utilities.getNav();
@@ -80,6 +73,13 @@ app.use(async (err, req, res, next) => {
     nav,
   });
 });
+
+// Account error handler middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something went wrong!');
+  console.log('Error in Account Route');
+})
 
 // Catch-all 404 error handling middleware - must be last
 app.use(async (req, res, next) => {
