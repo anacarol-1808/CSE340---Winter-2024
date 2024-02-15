@@ -1,0 +1,17 @@
+<!-- content heading -->
+
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else {
+      res.redirect('/')
+    } %>
+
+<!-- message -->
+
+<%- messages() %>
+
+<!-- Link 1: Aims to trigger a process to deliver an add new classification view (see Task 2).-->
+<a href="/inv/add-classification">Add New Classification</a>
+
+<!-- Link 2: Aims to trigger a process to deliver an add new inventory view (see Task 3).-->
+<a href="/inv/add-inventory">Add New Inventory</a>

@@ -17,6 +17,7 @@ const session = require("express-session");
 const pool = require("./database");
 const accountRoute = require("./routes/accountRoute");
 const bodyParser = require("body-parser")
+const invController = require("./controllers/invController")    //assigment_04
 
 /* ***********************
  * Middleware
@@ -57,6 +58,8 @@ app.use(static);
 app.get("/", utilities.handleErrors(baseController.buildHome));
 // Inventory routes
 app.use("/inv", utilities.handleErrors(inventoryRoute));
+app.get('/inv/add-classification', invController.renderAddClassification); // assigment_04
+app.get('/inv/add-inventory', invController.renderAddInventory); // assigment_04
 // Account route
 app.use("/account", utilities.handleErrors(accountRoute));
 // Intentional 500 Error Route

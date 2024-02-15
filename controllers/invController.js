@@ -36,5 +36,21 @@ invCont.showItemDetail = async function (req, res, next) {
   });
 };
 
+/* ***************************
+ *  Render add new classification view
+ * ************************** */
+invCont.renderAddClassification = async function (req, res, next) {
+  // Implement logic to render the add new classification view
+  res.render("./inventory/add-classification", { title: "Add New Classification" });
+};
+
+/* ***************************
+ *  Render add new inventory view
+ * ************************** */
+invCont.renderAddInventory = async function (req, res, next) {
+  // Implement logic to render the add new inventory view
+  res.render("./inventory/add-inventory", { title: "Add New Inventory" });
+};
+
 // Export individual controllers
 module.exports = invCont;
