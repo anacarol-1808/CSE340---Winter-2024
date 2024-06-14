@@ -41,4 +41,21 @@ async function getItemById(inv_id) {
   }
 }
 
-module.exports = {getClassifications, getInventoryByClassificationId, getItemById}
+/* ***************************
+ *  Model function to add a new Classification 
+ * ************************** */
+async function addNewClassification(classificationName) {
+  try {
+    await pool.query(
+      `INSERT INTO public.classification (classification_name) VALUES ($1)`,
+      [classificationName]
+     ) 
+  } catch (error) {
+      console.error("addNewClassification error: " + error)
+      throw error; // Re-throw the error to be caught by the calling function
+  }
+
+}
+  
+
+module.exports = {getClassifications, getInventoryByClassificationId, getItemById, addNewClassification}

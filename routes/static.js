@@ -11,7 +11,7 @@ router.use("/images", express.static(__dirname + "public/images"));
 // Intentional error route
 router.get('/intentional-error', (req, res, next) => {
     // Trigger an intentional error
-    throw new Error('This is an intentional error for Task 3.');
+    throw new Error('500 This is an intentional error for Task 3.');
   });
 
 module.exports = router;

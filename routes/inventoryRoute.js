@@ -9,4 +9,5 @@ router.get("/type/:classificationId", invController.buildByClassificationId);
 // Route to deliver a specific inventory item detail view
 router.get("/detail/:vehicleId", invController.showItemDetail);
 
+
 module.exports = router;

@@ -1,9 +1,19 @@
-<!-- Form -->
+ <!-- content heading -->
+ <% if (title) { %>
+  <h1><%= title %></h1>
+<% } else {
+  // Redirect to the home page if there is no title
+  res.redirect('/');
+} %>
 
+<!-- message -->
+<%- messages() %>
+
+<!-- Form -->
 <form id="classicationForm">
     <label for="classificationName">New Classification:</label>
-    <input type="text" id="classificationName" name="classification_name" pattern="/^[a-zA-Z]+$/" required>
-    <div>Requirements:
+    <input type="text" id="classificationName" name="classification_name" pattern="^[a-zA-Z]+$" required>
+    <div>Requested format:
         <ul>
             <li>text only</li>
             <li>no spaces</li>
